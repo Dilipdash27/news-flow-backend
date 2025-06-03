@@ -1,0 +1,13 @@
+export default function About() {
+  return (
+    <main>
+      <h1>About News Flow</h1>
+      <p>
+        News Flow is a copyright-safe, auto-updating news website that brings you the latest stories from trusted sources, respecting all licensing and attribution requirements.
+      </p>
+      <p>
+        We do not copy or store full articles. Every story links to its original source and is attributed accordingly.
+      </p>
+    </main>
+  );
+}

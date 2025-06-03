@@ -1,0 +1,10 @@
+export default function Contact() {
+  return (
+    <main>
+      <h1>Contact Us</h1>
+      <p>
+        For feedback or inquiries, reach out via email: <a href="mailto:contact@newsflow.com">contact@newsflow.com</a>
+      </p>
+    </main>
+  );
+}

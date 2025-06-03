@@ -1,0 +1,48 @@
+import Head from 'next/head';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+
+export default function Home() {
+  const [news, setNews] = useState([]);
+  const [region, setRegion] = useState('US');
+  const [lang, setLang] = useState('en');
+  const [category, setCategory] = useState('top');
+
+  useEffect(() => {
+    async function fetchNews() {
+      const res = await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/news`, {
+        params: { region, category, lang }
+      });
+      setNews(res.data);
+    }
+    fetchNews();
+  }, [region, lang, category]);
+
+  return (
+    <>
+      <Head>
+        <title>News Flow</title>
+        <meta name="description" content="Monetization-friendly, copyright-safe, auto-updating news website." />
+      </Head>
+      <header>
+        {/* Region/language selectors, dark mode toggle, logo */}
+      </header>
+      <main>
+        <section>
+          <h1>Latest News</h1>
+          {news.map((item: any) => (
+            <article key={item.id}>
+              <h2><a href={item.url} target="_blank" rel="noopener">{item.title}</a></h2>
+              <p>{item.summary}</p>
+              <span>Source: <a href={item.source_url} target="_blank" rel="noopener">{item.source_name}</a></span>
+            </article>
+          ))}
+        </section>
+        {/* AdSense ad slots, newsletter, affiliate, sponsored sections */}
+      </main>
+      <footer>
+        <a href="/about">About Us</a> | <a href="/contact">Contact</a> | <a href="/privacy-policy">Privacy Policy</a>
+      </footer>
+    </>
+  );
+}

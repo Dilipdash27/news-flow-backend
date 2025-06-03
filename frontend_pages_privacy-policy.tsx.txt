@@ -1,0 +1,13 @@
+export default function PrivacyPolicy() {
+  return (
+    <main>
+      <h1>Privacy Policy</h1>
+      <p>
+        We respect your privacy. News Flow uses cookies only for essential site functionality, analytics, and ads. No personal data is sold or shared.
+      </p>
+      <p>
+        See our full policy or contact us for details.
+      </p>
+    </main>
+  );
+}
